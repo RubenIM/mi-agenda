@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+ import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 
 public class VisionGeneralController {
@@ -117,11 +119,11 @@ public class VisionGeneralController {
         tablaPersona.getItems().remove(selectedIndex);
         } else {
            // Nothing selected.
-           Dialogs.create()   //qué ocurre
-              .title("No Selection")
-              .masthead("No Person Selected")
-              .message("Please select a person in the table.")
-              .showWarning();
+           Alert alert = new Alert(AlertType.WARNING);
+           alert.setTitle("No Selection");
+           alert.setHeaderText(null);
+           alert.setContentText("Please select a person in the table.");
+           alert.showAndWait();
         }                     
     }
     
