@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="BorderPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agenda.controlador.VisionGeneralController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agenda.controlador.VisionGeneralController">
    <children>
             <SplitPane dividerPositions="0.29797979797979796" layoutX="185.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <items>
@@ -23,9 +23,9 @@
                             <TableColumn fx:id="columnaNombre" prefWidth="75.0" text="Nombre" />
                             <TableColumn fx:id="columnaApellido" prefWidth="75.0" text="Apellido" />
                           </columns>
-                           <columnResizePolicy>
+                           <!--<columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
+                           </columnResizePolicy>-->
                         </TableView>
                      </children>
                   </AnchorPane>
@@ -62,17 +62,17 @@
                         </GridPane>
                   <HBox layoutX="46.0" layoutY="258.0" prefHeight="26.0" prefWidth="312.0">
                      <children>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Borrar">
+                              <Button fx:id="borrarPersona" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Borrar">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Editar">
+                              <Button fx:id="handleEditPerson" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Editar">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Nuevo" />
+                              <Button fx:id="handleNewPerson" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Nuevo" />
                      </children>
                   </HBox>
                      </children>

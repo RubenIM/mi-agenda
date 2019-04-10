@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="RubenAgenda.jar" size="9601" download="eager" />
+    <jar href="RubenAgenda.jar" size="13719" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="agenda.RubenAgendaMain"  name="RubenAgenda" />
   <update check="always"/>

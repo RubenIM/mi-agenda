@@ -34,15 +34,15 @@
             <Label fx:id="lbCiudad" text="Ciudad" GridPane.rowIndex="3" />
             <Label fx:id="lbCodigoPostal" text="Codigo Postal" GridPane.rowIndex="4" />
             <Label fx:id="lbCumpleanios" text="Cumpleaños" GridPane.rowIndex="5" />
-            <TextField fx:id="campoNombre" GridPane.columnIndex="1" />
-            <TextField fx:id="campoApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="campoCalle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="campoCiudad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="campoCodigoPostal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="campoCumpleanios" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="txNombre" GridPane.columnIndex="1" />
+            <TextField fx:id="txApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txCalle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txCiudad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txCodigoPostal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txCumpleanios" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="btOk" layoutX="345.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleOk" text="Ok" />
-      <Button fx:id="btCancelar" layoutX="423.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
+      <Button fx:id="btOk" layoutX="345.0" layoutY="340.0" mnemonicParsing="false" text="Ok" />
+      <Button fx:id="btCancelar" layoutX="423.0" layoutY="340.0" mnemonicParsing="false" text="Cancelar" />
    </children>
 </AnchorPane>

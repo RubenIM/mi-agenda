@@ -1,6 +1,7 @@
 package agenda;
 
 import agenda.controlador.VisionGeneralController;
+import agenda.controlador.dialogoEditarPersonaController;
 import agenda.modelo.Persona;
 import java.io.IOException;
 
@@ -12,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class RubenAgendaMain extends Application {
@@ -101,12 +103,40 @@ public class RubenAgendaMain extends Application {
         datosPersona.add(new Persona("Alberto", "Sampedro"));
     }
   
-    
-    public ObservableList<Persona> getPersonData() {
-        return datosPersona;
-    }
 
     public ObservableList<Persona> getDatosPersona() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return datosPersona;
     }
+    
+    
+    public boolean showPersonEditDialog(Persona persona) {
+    try {
+        // Load the fxml file and create a new stage for the popup dialog.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(RubenAgendaMain.class.getResource("view/PersonEditDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+
+        // Create the dialog Stage.
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Edit Person");
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.initOwner(primerEscenario);
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+
+        // Set the person into the controller.
+        dialogoEditarPersonaController controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setPerson(persona);
+
+        // Show the dialog and wait until the user closes it
+        dialogStage.showAndWait();
+
+        return controller.isOkClicked();
+    } catch (IOException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+    
 }
