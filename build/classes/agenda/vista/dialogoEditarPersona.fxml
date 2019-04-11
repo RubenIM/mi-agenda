@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -9,10 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agenda.controlador.dialogoEditarPersonaController">
-    <stylesheets>
-        <URL value="@dialogoeditarpersona.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="agenda.controlador.dialogoEditarPersonaController">
    <children>
       <GridPane layoutX="6.0" layoutY="14.0" prefHeight="275.0" prefWidth="600.0">
         <columnConstraints>
@@ -34,15 +31,19 @@
             <Label fx:id="lbCiudad" text="Ciudad" GridPane.rowIndex="3" />
             <Label fx:id="lbCodigoPostal" text="Codigo Postal" GridPane.rowIndex="4" />
             <Label fx:id="lbCumpleanios" text="Cumpleaños" GridPane.rowIndex="5" />
-            <TextField fx:id="txNombre" GridPane.columnIndex="1" />
-            <TextField fx:id="txApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txCalle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txCiudad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txCodigoPostal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="txCumpleanios" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="campoNombre" GridPane.columnIndex="1" />
+            <TextField fx:id="campoApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="campoCalle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="campoCiudad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="campoCodigoPostal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="campoCumpleanios" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="btOk" layoutX="345.0" layoutY="340.0" mnemonicParsing="false" text="Ok" />
-      <Button fx:id="btCancelar" layoutX="423.0" layoutY="340.0" mnemonicParsing="false" text="Cancelar" />
+      <Button fx:id="btOk" defaultButton="true" layoutX="345.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleOk" text="Ok" />
+      <Button fx:id="btCancelar" layoutX="423.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancelar" />
    </children>
+   <styleClass>
+      <String fx:value="mainFxmlClass" />
+      <String fx:value="background" />
+   </styleClass>
 </AnchorPane>

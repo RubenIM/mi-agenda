@@ -1,5 +1,6 @@
 package agenda.modelo;
 
+import agenda.util.LocalDateAdapter;
 import java.time.LocalDate;
 
 import javafx.beans.property.IntegerProperty;
@@ -8,6 +9,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 public class Persona {
 
@@ -92,6 +94,7 @@ public class Persona {
         return ciudad;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getCumpleanios() {
         return cumpleanios.get();
     }
