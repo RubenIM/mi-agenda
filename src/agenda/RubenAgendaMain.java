@@ -135,7 +135,7 @@ public class RubenAgendaMain extends Application {
     try {
         // Load the fxml file and create a new stage for the popup dialog.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(RubenAgendaMain.class.getResource("view/PersonEditDialog.fxml"));
+        loader.setLocation(RubenAgendaMain.class.getResource("vista/dialogoEditarPersona.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Create the dialog Stage.

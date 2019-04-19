@@ -111,8 +111,8 @@ public class VisionGeneralController {
         }
     }
     
-    
-    private void borrarPersona() {
+    @FXML
+    private void handleDeletePerson() {
         int selectedIndex = tablaPersona.getSelectionModel().getSelectedIndex();
         tablaPersona.getItems().remove(selectedIndex);
         if (selectedIndex >= 0) {

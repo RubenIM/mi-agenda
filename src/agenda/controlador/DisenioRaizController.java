@@ -12,7 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 
 
-public class DisenioRaizController implements Initializable {
+public class DisenioRaizController {
 
    
     // Reference to the main application
@@ -112,10 +112,5 @@ public class DisenioRaizController implements Initializable {
     @FXML
     private void handleExit() {
         System.exit(0);
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

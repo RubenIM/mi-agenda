@@ -62,17 +62,17 @@
                         </GridPane>
                   <HBox layoutX="46.0" layoutY="258.0" prefHeight="26.0" prefWidth="312.0">
                      <children>
-                              <Button fx:id="borrarPersona" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" styleClass="text-field" text="Borrar">
+                              <Button fx:id="handleDeletePerson" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="28.0" prefWidth="90.0" styleClass="text-field" text="Borrar">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                              <Button fx:id="handleEditPerson" mnemonicParsing="false" prefHeight="28.0" prefWidth="103.0" styleClass="text-field" text="Editar">
+                              <Button fx:id="handleEditPerson" mnemonicParsing="false" onAction="#handleEditPerson" prefHeight="28.0" prefWidth="103.0" styleClass="text-field" text="Editar">
                            <HBox.margin>
                               <Insets right="15.0" />
                            </HBox.margin>
                         </Button>
-                              <Button fx:id="handleNewPerson" mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" styleClass="text-field" text="Nuevo" />
+                              <Button fx:id="handleNewPerson" mnemonicParsing="false" onAction="#handleNewPerson" prefHeight="28.0" prefWidth="90.0" styleClass="text-field" text="Nuevo" />
                      </children>
                   </HBox>
                      </children>
