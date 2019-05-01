@@ -13,22 +13,16 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="agenda.controlador.dialogoEditarPersonaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Anotaciones.controlador.dialogoEditarAnotacionesController">
   <children>
     <GridPane layoutX="6.0" layoutY="14.0" prefHeight="275.0" prefWidth="600.0">
       <children>
-        <Label fx:id="lbNombre" text="Nombre" />
-        <Label fx:id="lbApellido" text="Apellido" GridPane.rowIndex="1" />
-        <Label fx:id="lbCalle" text="Calle" GridPane.rowIndex="2" />
-        <Label fx:id="lbCiudad" text="Ciudad" GridPane.rowIndex="3" />
-        <Label fx:id="lbCodigoPostal" text="Codigo Postal" GridPane.rowIndex="4" />
-        <Label fx:id="lbCumpleanios" text="Cumpleaños" GridPane.rowIndex="5" />
-        <TextField fx:id="campoNombre" GridPane.columnIndex="1" />
-        <TextField fx:id="campoApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField fx:id="campoCalle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <TextField fx:id="campoCiudad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <TextField fx:id="campoCodigoPostal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <TextField fx:id="campoCumpleanios" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label fx:id="lbTitulo" text="Titulo" />
+        <Label fx:id="lbDescripcion" text="Descripcion" GridPane.rowIndex="1" />
+        <Label fx:id="lbFechaCreacion" text="FechaCreacion" GridPane.rowIndex="2" />
+        <TextField fx:id="campoTitulo" GridPane.columnIndex="1" />
+        <TextField fx:id="campoDescripcion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="campoFechaCreacion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="301.0" />

@@ -3,10 +3,7 @@ package agenda.controlador;
 
 import agenda.RubenAgendaMain;
 import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
@@ -17,7 +14,7 @@ public class DisenioRaizController {
    
     // Reference to the main application
     private RubenAgendaMain mainApp;
-
+    private VisionGeneralController personController;
     /**
      * Is called by the main application to give a reference back to itself.
      * 
@@ -32,7 +29,7 @@ public class DisenioRaizController {
      */
     @FXML
     private void handleNew() {
-        mainApp.getDatosPersona().clear();
+        personController.getDatosPersona().clear();
         mainApp.setPersonFilePath(null);
     }
 

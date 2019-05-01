@@ -1,8 +1,11 @@
+
 package agenda;
 
+import Anotaciones.modelo.Anotaciones;
 import agenda.controlador.DisenioRaizController;
 import agenda.controlador.VisionGeneralController;
 import agenda.controlador.dialogoEditarPersonaController;
+import Anotaciones.controlador.dialogoEditarAnotacionesController;
 import agenda.modelo.PersonListWrapper;
 import agenda.modelo.Persona;
 import java.io.File;
@@ -28,9 +31,9 @@ import javax.xml.bind.Unmarshaller;
 
 public class RubenAgendaMain extends Application {
 
-    private Stage primerEscenario;
-    private BorderPane disenioRaiz;
-    private FXMLLoader cargador;
+    public Stage primerEscenario;
+    public BorderPane disenioRaiz;
+    public FXMLLoader cargador;
 
     @Override
     public void start(Stage primerEscenario) {
@@ -40,7 +43,8 @@ public class RubenAgendaMain extends Application {
         this.primerEscenario.getIcons().add(new Image("file:resources/images/bat.png")); 
         iniciaDisenioRaiz();
 
-        muestraVistasPersona();
+        muestraVistasPrincipal();
+        //muestraVistasPersona();
     }
     
  
@@ -63,45 +67,46 @@ public class RubenAgendaMain extends Application {
             e.printStackTrace();
         }
                         
-        File file = getPersonFilePath();
+        /*File file = getPersonFilePath();
         if (file != null) {
             loadPersonDataFromFile(file);
-        }        
+        } */       
     }
 
-    
-    public void muestraVistasPersona() {
-        /*try {
-   
-            cargador = new FXMLLoader();
-            cargador.setLocation(RubenAgendaMain.class.getResource("agenda.vista/VisionGeneral.fxml"));
-            AnchorPane vistasPersona = (AnchorPane) cargador.load();
-            
-            disenioRaiz.setCenter(vistasPersona);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        public void muestraVistasPrincipal() {
         
                 try {
-            // Load person overview.
             cargador = new FXMLLoader();
-            cargador.setLocation(agenda.RubenAgendaMain.class.getResource("vista/VisionGeneral.fxml"));
+            cargador.setLocation(agenda.RubenAgendaMain.class.getResource("VisionPrincipal.fxml"));
             
             AnchorPane personOverview = (AnchorPane) cargador.load();
             
-            // Set person overview into the center of root layout.
             disenioRaiz.setCenter(personOverview);
-            VisionGeneralController controlador = cargador.getController();
+            VisionPrincipalController controlador = cargador.getController();
             controlador.setMainApp(this);
 
         } catch (IOException e) {
             e.printStackTrace();
         }      
-    }
-    
+    }   
     
     public Stage getPrimerEscenario() {
-        return primerEscenario;
+        
+        try {
+            cargador = new FXMLLoader();
+            cargador.setLocation(RubenAgendaMain.class.getResource("vista/DisenioRaiz.fxml"));
+            
+            disenioRaiz = (BorderPane) cargador.load();
+            
+            Scene escena = new Scene(disenioRaiz);
+            primerEscenario.setScene(escena);
+        
+        return primerEscenario;   
+        
+        } 
+        catch (Exception e) {
+            return null;
+        }                
     }
 
     public static void main(String[] args) {
@@ -109,57 +114,12 @@ public class RubenAgendaMain extends Application {
     }
        
     private ObservableList<Persona> datosPersona = FXCollections.observableArrayList();
-
     
     public RubenAgendaMain() {
-       
-        datosPersona.add(new Persona("Ruben", "Izquierdo"));
-        datosPersona.add(new Persona("Laura", "Herrera"));
-        datosPersona.add(new Persona("Manu", "Valverde"));
-        datosPersona.add(new Persona("Laura", "Perez"));
-        datosPersona.add(new Persona("Miguel", "Lopez"));
-        datosPersona.add(new Persona("Alvaro", "Mayorga"));
-        datosPersona.add(new Persona("Maribel", "Freire"));
-        datosPersona.add(new Persona("Suliman", "Abdelkader"));
-        datosPersona.add(new Persona("Marco", "Ruiz"));
-        datosPersona.add(new Persona("Alberto", "Sampedro"));
-    }
-  
-
-    public ObservableList<Persona> getDatosPersona() {
-        return datosPersona;
     }
     
+
     
-    public boolean showPersonEditDialog(Persona persona) {
-    try {
-        // Load the fxml file and create a new stage for the popup dialog.
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(RubenAgendaMain.class.getResource("vista/dialogoEditarPersona.fxml"));
-        AnchorPane page = (AnchorPane) loader.load();
-
-        // Create the dialog Stage.
-        Stage dialogStage = new Stage();
-        dialogStage.setTitle("Edit Person");
-        dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.initOwner(primerEscenario);
-        Scene scene = new Scene(page);
-        dialogStage.setScene(scene);
-
-        // Set the person into the controller.
-        dialogoEditarPersonaController controller = loader.getController();
-        controller.setDialogStage(dialogStage);
-        controller.setPerson(persona);
-
-        // Show the dialog and wait until the user closes it
-        dialogStage.showAndWait();
-
-        return controller.isOkClicked();
-    } catch (IOException e) {
-        e.printStackTrace();
-        return false;
-    }
-}
     public File getPersonFilePath() {
     Preferences prefs = Preferences.userNodeForPackage(RubenAgendaMain.class);
     String filePath = prefs.get("filePath", null);

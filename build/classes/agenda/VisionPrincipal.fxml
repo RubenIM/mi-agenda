@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="BorderPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="agenda.VisionPrincipalController">
+  <children>
+    <Button fx:id="btnAgenda" layoutX="81.0" layoutY="123.0" mnemonicParsing="false" onAction="#muestraVistasPersona" text="">
+      <graphic>
+        <ImageView id="imagenAgenda" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../resources/images/addressnotebook.png" />
+          </image>
+        </ImageView>
+      </graphic>
+    </Button>
+    <Button fx:id="btnNotas" layoutX="363.0" layoutY="123.0" mnemonicParsing="false" onAction="#muestraVistasAnotaciones" text="">
+      <graphic>
+        <ImageView id="imagenNotas" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../resources/images/notebook.png" />
+          </image>
+        </ImageView>
+      </graphic>
+    </Button>
+  </children>
+</AnchorPane>
+

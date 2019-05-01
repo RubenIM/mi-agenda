@@ -1,6 +1,8 @@
-package agenda.controlador;
+package Anotaciones.controlador;
 
 import agenda.RubenAgendaMain;
+import Anotaciones.modelo.Anotaciones;
+import agenda.controlador.dialogoEditarPersonaController;
 import agenda.modelo.Persona;
 import agenda.util.FechaUtil;
 import java.io.IOException;
@@ -22,68 +24,50 @@ import javafx.stage.Stage;
 
 public class VisionGeneralController {
     @FXML
-    private TableView<Persona> tablaPersona;
+    private TableView<Anotaciones> tablaAnotaciones;
     @FXML
-    private TableColumn<Persona, String> columnaNombre;
+    private TableColumn<Anotaciones, String> columnaAnotaciones;
     @FXML
-    private TableColumn<Persona, String> columnaApellido;
+    private Label etiquetaTitulo;
     @FXML
-    private Label etiquetaNombre;
+    private Label etiquetaDescripcion;
     @FXML
-    private Label etiquetaApellido;
-    @FXML
-    private Label etiquetaCalle;
-    @FXML
-    private Label etiquetaCodigoPostal;
-    @FXML
-    private Label etiquetaCiudad;
-    @FXML
-    private Label etiquetaCumpleanios;
-    
-    private ObservableList<Persona> datosPersona = FXCollections.observableArrayList();
+    private Label etiquetaFechaCreacion;
+    private ObservableList<Anotaciones> datosNotas = FXCollections.observableArrayList();
     // Reference to the main application.
     private RubenAgendaMain mainApp;
-    private BorderPane disenioRaiz;
-    private FXMLLoader cargador;
-    /**
-     * The constructor.
-     * The constructor is called before the initialize() method.
-     */
+
+    FXMLLoader cargador = new FXMLLoader();
+    
+    BorderPane disenioRaiz = new BorderPane();
+    
     public VisionGeneralController() {
     }
-
-    /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     */
-    
     
     @FXML
     private void initialize() {        
         
-        datosPersona.add(new Persona("Ruben", "Izquierdo"));
-        datosPersona.add(new Persona("Laura", "Herrera"));
-        datosPersona.add(new Persona("Manu", "Valverde"));
-        datosPersona.add(new Persona("Laura", "Perez"));
-        datosPersona.add(new Persona("Miguel", "Lopez"));
-        datosPersona.add(new Persona("Alvaro", "Mayorga"));
-        datosPersona.add(new Persona("Maribel", "Freire"));
-        datosPersona.add(new Persona("Suliman", "Abdelkader"));
-        datosPersona.add(new Persona("Marco", "Ruiz"));
-        datosPersona.add(new Persona("Alberto", "Sampedro"));
+        datosNotas.add(new Anotaciones("1","a"));
+        datosNotas.add(new Anotaciones("2","b"));
+        datosNotas.add(new Anotaciones("3","c"));
+        datosNotas.add(new Anotaciones("4","d"));
+        datosNotas.add(new Anotaciones("5","e"));
+        datosNotas.add(new Anotaciones("6","f"));
+        datosNotas.add(new Anotaciones("8","g"));
+        datosNotas.add(new Anotaciones("9","h"));        
         
         // Initialize the person table with the two columns.
-        columnaNombre.setCellValueFactory(cellData -> cellData.getValue().propiedadNombre());
-        columnaApellido.setCellValueFactory(cellData -> cellData.getValue().propiedadApellido());
+        columnaAnotaciones.setCellValueFactory(cellData -> cellData.getValue().propiedadTitulo());
 
         // Clear person details.
-        mostrarDetallesPersona(null);
+        mostrarDetallesAnotaciones(null);
 
-        // Listen for selection changes and show the person details when changed.
-        tablaPersona.getSelectionModel().selectedItemProperty().addListener(
-               (observable, oldValue, newValue) -> mostrarDetallesPersona(newValue));    
+        //tablaAnotaciones.setItems(mainApp.getDatosAnotaciones());
         
-        tablaPersona.setItems(datosPersona);        
+        // Listen for selection changes and show the person details when changed.
+        tablaAnotaciones.getSelectionModel().selectedItemProperty().addListener(
+               (observable, oldValue, newValue) -> mostrarDetallesAnotaciones(newValue));        
+        tablaAnotaciones.setItems(datosNotas);
     }
    
     /**
@@ -92,35 +76,33 @@ public class VisionGeneralController {
  * 
  * @param person the person or null
  */
-    private void mostrarDetallesPersona(Persona persona) {
-        if (persona != null) {
+        public ObservableList<Anotaciones> getDatosAnotaciones() {
+        return datosNotas;
+    }
+            
+    private void mostrarDetallesAnotaciones(Anotaciones anotaciones) {
+        if (anotaciones != null) {
         // Fill the labels with info from the person object.
-           etiquetaNombre.setText(persona.getNombre());
-           etiquetaApellido.setText(persona.getApellido());
-           etiquetaCalle.setText(persona.getCalle());
-           etiquetaCodigoPostal.setText(Integer.toString(persona.getCodigoPostal()));
-           etiquetaCiudad.setText(persona.getCiudad());
-           etiquetaCumpleanios.setText(FechaUtil.format(persona.getCumpleanios()));
+           etiquetaTitulo.setText(anotaciones.getTitulo());
+           etiquetaDescripcion.setText(anotaciones.getDescripcion());
+           etiquetaFechaCreacion.setText(FechaUtil.format(anotaciones.getFechaCreacion()));
 
         // TODO: We need a way to convert the birthday into a String! 
         // birthdayLabel.setText(...);
         } else {
-        // Person is null, remove all the text.
-           etiquetaNombre.setText("");
-           etiquetaApellido.setText("");
-           etiquetaCalle.setText("");
-           etiquetaCodigoPostal.setText("");
-           etiquetaCiudad.setText("");
-           etiquetaCumpleanios.setText("");
+        // Notes is null, remove all the text.
+           etiquetaTitulo.setText("");
+           etiquetaDescripcion.setText("");
+           etiquetaFechaCreacion.setText("");
         }
     }
     
     @FXML
-    private void borrarPersona() {
-        int selectedIndex = tablaPersona.getSelectionModel().getSelectedIndex();
-        tablaPersona.getItems().remove(selectedIndex);
+    private void borrarAnotaciones() {
+        int selectedIndex = tablaAnotaciones.getSelectionModel().getSelectedIndex();
+        tablaAnotaciones.getItems().remove(selectedIndex);
         if (selectedIndex >= 0) {
-        tablaPersona.getItems().remove(selectedIndex);
+        tablaAnotaciones.getItems().remove(selectedIndex);
         } else {
            // Nothing selected.
            Alert alert = new Alert(AlertType.WARNING);
@@ -133,17 +115,37 @@ public class VisionGeneralController {
     
     
     @FXML
-private void handleNewPerson() {
-    Persona tempPerson = new Persona();
-    boolean okClicked = showPersonEditDialog(tempPerson);
+private void handleNewNotes() {
+    Anotaciones tempNota = new Anotaciones();
+    boolean okClicked = showNoteEditDialog(tempNota);
     if (okClicked) {
-        datosPersona.add(tempPerson);
+        datosNotas.add(tempNota);
+    }
+}   
+
+/**
+ * Called when the user clicks the edit button. Opens a dialog to edit
+ * details for the selected person.
+ */
+@FXML
+private void handleEditNotes() {
+    Anotaciones selectedNota = tablaAnotaciones.getSelectionModel().getSelectedItem();
+    if (selectedNota != null) {
+        boolean okClicked = showNoteEditDialog(selectedNota);
+        if (okClicked) {
+            mostrarDetallesAnotaciones(selectedNota);
+        }
+
+    } else {
+        // Nothing selected.
+           Alert alert = new Alert(AlertType.WARNING);
+           alert.setTitle("No Selection");
+           alert.setHeaderText(null);
+           alert.setContentText("Please select a note in the table.");
+           alert.showAndWait();
     }
 }
-    public ObservableList<Persona> getDatosPersona() {
-        return datosPersona;
-    }
-    
+
     private Stage getEscenarioPrincipal(){
         
         try {
@@ -162,26 +164,26 @@ private void handleNewPerson() {
             return null;
         }        
     }
-    
-    public boolean showPersonEditDialog(Persona persona) {
+
+      public boolean showNoteEditDialog(Anotaciones anotaciones) {
     try {
         // Load the fxml file and create a new stage for the popup dialog.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(RubenAgendaMain.class.getResource("vista/dialogoEditarPersona.fxml"));
+        loader.setLocation(RubenAgendaMain.class.getResource("../Anotaciones/vista/dialogoEditarAnotaciones.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         // Create the dialog Stage.
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Edit Person");
+        dialogStage.setTitle("Edit Note");
         dialogStage.initModality(Modality.WINDOW_MODAL);
         dialogStage.initOwner(getEscenarioPrincipal());
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
 
         // Set the person into the controller.
-        dialogoEditarPersonaController controller = loader.getController();
+        dialogoEditarAnotacionesController controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        controller.setPerson(persona);
+        controller.setNote(anotaciones);
 
         // Show the dialog and wait until the user closes it
         dialogStage.showAndWait();
@@ -192,29 +194,7 @@ private void handleNewPerson() {
         return false;
     }
 }
-    
-/**
- * Called when the user clicks the edit button. Opens a dialog to edit
- * details for the selected person.
- */
-@FXML
-private void handleEditPerson() {
-    Persona selectedPerson = tablaPersona.getSelectionModel().getSelectedItem();
-    if (selectedPerson != null) {
-        boolean okClicked = showPersonEditDialog(selectedPerson);
-        if (okClicked) {
-            mostrarDetallesPersona(selectedPerson);
-        }
-
-    } else {
-        // Nothing selected.
-           Alert alert = new Alert(AlertType.WARNING);
-           alert.setTitle("No Selection");
-           alert.setHeaderText(null);
-           alert.setContentText("Please select a person in the table.");
-           alert.showAndWait();
-    }
-}
+      
       public void iniciaDisenioRaiz() {
         try {
 
