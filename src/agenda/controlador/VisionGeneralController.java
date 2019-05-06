@@ -133,13 +133,14 @@ public class VisionGeneralController {
     
     
     @FXML
-private void handleNewPerson() {
-    Persona tempPerson = new Persona();
-    boolean okClicked = showPersonEditDialog(tempPerson);
-    if (okClicked) {
-        datosPersona.add(tempPerson);
+    private void handleNewPerson() {
+        Persona tempPerson = new Persona();
+        boolean okClicked = showPersonEditDialog(tempPerson);
+        if (okClicked) {
+           datosPersona.add(tempPerson);
+        }
     }
-}
+    
     public ObservableList<Persona> getDatosPersona() {
         return datosPersona;
     }

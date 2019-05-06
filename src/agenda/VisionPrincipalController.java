@@ -27,29 +27,29 @@ public class VisionPrincipalController {
 
     private BorderPane disenioRaiz;
     private FXMLLoader cargador;
-    private RubenAgendaMain mainApp;
+    private RubenAgendaMain mainApp;   //solo este
     private VisionGeneralController personController;
     /**
      * Initializes the controller class.
      */
-        public void setMainApp(RubenAgendaMain mainApp) {
-        this.mainApp = mainApp;
+    public void setMainApp(RubenAgendaMain mainApp) {
+          this.mainApp = mainApp;
     }    
 
-        public void iniciaDisenioRaiz() {
-        try {
+    public void iniciaDisenioRaiz() {
+           try {
 
-            cargador = new FXMLLoader();
-            cargador.setLocation(RubenAgendaMain.class.getResource("vista/DisenioRaiz.fxml"));
+               cargador = new FXMLLoader();
+               cargador.setLocation(RubenAgendaMain.class.getResource("vista/DisenioRaiz.fxml"));
+                  
+                disenioRaiz = (BorderPane) cargador.load();   
             
-            disenioRaiz = (BorderPane) cargador.load();   
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
     }
         
-        public void muestraVistasPersona() {
+    public void muestraVistasPersona() {
             try {                 
                     
             iniciaDisenioRaiz();
@@ -71,7 +71,7 @@ public class VisionPrincipalController {
             } catch (IOException e) {
                 e.printStackTrace();
             }      
-        }
+    }
     
     public void muestraVistasAnotaciones() {
         try {

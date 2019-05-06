@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/controlador/VisionGeneralController.java</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/modelo/Persona.java</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/vista/dialogoEditarPersona.fxml</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/vista/VisionGeneral.fxml</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/vista/DisenioRaiz.fxml</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/controlador/DisenioRaizController.java</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/RubenAgendaMain.java</file>
-            <file>file:/home/desarrollo/Descargas/pepe/RubenAgenda/src/agenda/controlador/dialogoEditarPersonaController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
